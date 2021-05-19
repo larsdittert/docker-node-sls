@@ -1,10 +1,14 @@
-FROM node:12.18.1
+FROM node:12.22.1
 
 RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y zip unzip
 RUN apt-get install -y jq
 RUN apt-get install -y python3 python3-pip
 RUN pip3 install --upgrade pip
+RUN pip3 install pip typing
 RUN pip3 install azure-cli || echo "Installing Azure CLI"
+RUN az upgrade -y
 RUN pip3 install yq
 
 RUN az --version
