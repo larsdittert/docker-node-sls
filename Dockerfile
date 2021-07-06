@@ -14,3 +14,8 @@ RUN pip3 install yq
 RUN az --version
 
 RUN npm install -g serverless || echo "Installing sls"
+
+RUN wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+RUN dpkg -i packages-microsoft-prod.deb
+RUN apt-get update
+RUN apt-get install azure-functions-core-tools-3
